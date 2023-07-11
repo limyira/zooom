@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import user_img from "../assets/user.svg";
+import Message from "../components/Message";
 
 const maxWidth = "620px";
 const Chat = () => {
@@ -20,8 +21,10 @@ const Chat = () => {
     mic: false,
     video: false,
   });
-  const [remote_img, setRemote_Img] = useState(false);
   const streamRef = useRef(null);
+  const [open, setOpen] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+
   const setVideoTracks = async () => {
     try {
       streamRef.current = await navigator.mediaDevices.getUserMedia({
@@ -160,6 +163,10 @@ const Chat = () => {
       };
     });
   };
+  const handleMessage = () => {
+    if (isSending) return;
+    setOpen((prev) => !prev);
+  };
   return (
     <Container>
       <Main className="main">
@@ -179,10 +186,14 @@ const Chat = () => {
         <MicBtn micstate={states.mic.toString()} onClick={handleMic}>
           <FontAwesomeIcon icon={faMicrophone} />
         </MicBtn>
-        <MessageBtn>
-          <FontAwesomeIcon icon={faMessage} />
+        <MessageBtn open={open} onClick={handleMessage}>
+          <FontAwesomeIcon
+            style={{ color: open ? "#3d4043" : "white" }}
+            icon={faMessage}
+          />
         </MessageBtn>
       </Nav>
+      <Message setIsSending={setIsSending} open={open} setOpen={setOpen} />
     </Container>
   );
 };
@@ -228,10 +239,6 @@ const Video = styled.video`
   }
 `;
 
-const CameraBtn = styled.div`
-  background-color: ${(props) =>
-    props.videostate === "true" ? "red" : "green"};
-`;
 const Nav = styled.div`
   width: 100%;
   height: 80px;
@@ -257,7 +264,12 @@ const MicBtn = styled.div`
   background-color: ${(props) => (props.micstate === "true" ? "red" : "green")};
 `;
 const MessageBtn = styled.div`
-  background-color: #3d4043;
+  background-color: ${(props) => (props.open ? "white" : "#3d4043")};
+`;
+
+const CameraBtn = styled.div`
+  background-color: ${(props) =>
+    props.videostate === "true" ? "red" : "green"};
 `;
 const VideoWrapper = styled.div`
   border-radius: 15px;
@@ -280,12 +292,4 @@ const DisConnectImg = styled.img`
   width: 100%;
   height: 100%;
   position: absolute;
-`;
-
-const Name = styled.span`
-  position: absolute;
-  z-index: 99;
-  bottom: 5%;
-  left: 5%;
-  color: white;
 `;
