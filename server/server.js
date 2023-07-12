@@ -1,22 +1,29 @@
+import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import { Server } from "socket.io";
 import http from "http";
+import bodyParser from "body-parser";
+import twilio from "twilio";
+dotenv.config();
 const app = express();
 const PORT = 8080;
+const sid = process.env.SID;
+const token = process.env.AUTH_TOKEN;
+const client = twilio(sid, token);
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.CLIENT_ADDRESS,
     methods: ["GET", "PUT", "POST"],
-    credentials: true,
-    allowedHeaders: ["my-custom-header"],
   })
 );
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: process.env.CLIENT_ADDRESS,
     methods: ["GET", "POST"],
   },
 });
@@ -82,6 +89,29 @@ io.on("connection", (socket) => {
 app.use(express.json());
 app.get("/", (req, res) => {
   return res.json(server);
+});
+app.post("/api/message", (req, res) => {
+  const { text } = req.body;
+  if (text) {
+    console.log(text);
+    try {
+      client.messages
+        .create({
+          body: text,
+          from: process.env.FROM_NUMBER,
+          to: process.env.TO_NUMBER,
+        })
+        .then((message) => console.log(message.sid));
+
+      return res.status(200).json({ success: true });
+    } catch (err) {
+      return res.status(500).json({ message: "text가 존재하지 않습니다." });
+    }
+  } else {
+    return res
+      .status(500)
+      .json({ message: "메세지가 제대로 전송되지 못했습니다." });
+  }
 });
 
 server.listen(PORT, () => {
