@@ -65,13 +65,10 @@ io.on("connection", (socket) => {
   socket.on("candidate", (candidate) => {
     socket.broadcast.emit("getCandidate", candidate);
   });
-  socket.on("video_state", (state) => {
-    console.log(state);
-    socket.broadcast.emit("return_video_state", state);
-  });
 
-  socket.on("disconnect", () => {
+  socket.on("disconnecting", () => {
     const roomID = socketToRoom[socket.id];
+
     let room = users[roomID];
     if (room) {
       room = room.filter((user) => user.id !== socket.id);
@@ -82,7 +79,7 @@ io.on("connection", (socket) => {
       }
     }
     delete socketToRoom[socket.id];
-    socket.broadcast.to(room).emit("user_exit", { id: socket.id });
+    socket.broadcast.emit("user_exit", { id: socket.id });
   });
 });
 
