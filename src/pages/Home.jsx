@@ -66,6 +66,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   --tw-bg-opacity: 1;
+  overflow: hidden;
   background-color: rgb(254 242 242 / var(--tw-bg-opacity));
 `;
 

@@ -202,7 +202,8 @@ export default Chat;
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  overflow: hidden;
   display: flex;
   background-color: #202124;
   align-items: center;
