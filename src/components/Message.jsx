@@ -90,7 +90,7 @@ const FormWrapper = styled.div`
   height: 240px;
   background-color: #f0f0f0;
   position: absolute;
-  bottom: ${(props) => (props.open ? "0" : "-100%")};
+  bottom: ${(props) => (props.open ? "0" : "-240px")};
   right: 10%;
   border-radius: 8px;
   z-index: 9999;

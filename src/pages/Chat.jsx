@@ -202,13 +202,14 @@ export default Chat;
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  height: 100vh;
   display: flex;
   background-color: #202124;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  overflow: hidden;
+  position: relative;
   @media screen and (max-width: ${maxWidth}) {
     align-items: flex-start;
   }
