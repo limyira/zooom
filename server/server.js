@@ -13,17 +13,17 @@ const token = process.env.AUTH_TOKEN;
 const client = twilio(sid, token);
 app.use(
   cors({
-    origin: "https://zooom-peach.vercel.app/",
+    origin: "https://zooom-peach.vercel.app",
     methods: ["GET", "PUT", "POST"],
   })
 );
-
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const server = http.createServer(app);
-const io = new Server(server, {
+const io = new Server(Server, {
   cors: {
-    origin: "https://zooom-peach.vercel.app/",
+    origin: "https://zooom-peach.vercel.app",
     methods: ["GET", "POST"],
   },
 });
@@ -83,7 +83,6 @@ io.on("connection", (socket) => {
   });
 });
 
-app.use(express.json());
 app.get("/", (req, res) => {
   return res.json(server);
 });
