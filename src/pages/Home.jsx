@@ -45,11 +45,11 @@ const Home = () => {
     <Container>
       <Main>
         <Content>
-          <img src={z} width="80" height="80" className="z" />
-          <img src={o} width="80" height="80" className="o_1" />
-          <img src={oo} width="80" height="80" className="o_2" />
-          <img src={ooo} width="80" height="80" className="o_3" />
-          <img src={m} width="80" height="80" className="m" />
+          <img src={z} className="z" />
+          <img src={o} className="o_1" />
+          <img src={oo} className="o_2" />
+          <img src={ooo} className="o_3" />
+          <img src={m} className="m" />
         </Content>
         <Span>방문 해주셔서 감사합니다.</Span>
         <A to="/chat">화상채팅 해보기</A>
@@ -77,6 +77,9 @@ const Main = styled.main`
   flex-direction: column;
   padding: 0.75rem;
   padding-top: 2.75rem;
+  @media screen and (max-width: 620px) {
+    height: 50%;
+  }
 `;
 
 const Content = styled.div`
@@ -84,6 +87,14 @@ const Content = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 6rem;
+  img {
+    width: 80px;
+    height: 80px;
+    @media screen and (max-width: 620px) {
+      width: 60px;
+      height: 60px;
+    }
+  }
 `;
 
 const Span = styled.span`
@@ -92,6 +103,9 @@ const Span = styled.span`
   text-align: center;
   font-size: 1.875rem /* 30px */;
   line-height: 2.25rem /* 36px */;
+  @media screen and (max-width: 620px) {
+    font-size: 1.4rem;
+  }
 `;
 
 const A = styled(Link)`
@@ -107,5 +121,8 @@ const A = styled(Link)`
   &:hover {
     --tw-text-opacity: 1;
     color: rgb(107 114 128 / var(--tw-text-opacity));
+  }
+  @media screen and (max-width: 620px) {
+    font-size: 1.2rem;
   }
 `;
