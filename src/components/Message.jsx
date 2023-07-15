@@ -53,6 +53,7 @@ const Message = ({ open, setOpen, setIsSending }) => {
       tl.to(".plane", { x: 0, y: 0, rotateY: 0, duration: 0.3, opacity: 0 });
       await tl.set(".wrapper", { opacity: 1, delay: 1 });
       const res = await axios.post("https://yira.site/api/message", { text });
+      if (res.status === 500) alert("메시지 전송 실패");
       setText("");
       setIsSending(false);
     } else return;
