@@ -94,7 +94,6 @@ const Chat = () => {
       console.log(e);
     }
   };
-  console.log("why");
 
   useEffect(() => {
     socketRef.current = io("https://yira.stie");

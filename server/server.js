@@ -13,7 +13,7 @@ const token = process.env.AUTH_TOKEN;
 const client = twilio(sid, token);
 app.use(
   cors({
-    origin: process.env.CLIENT_ADDRESS,
+    origin: "https://zooom-peach.vercel.app/",
     methods: ["GET", "PUT", "POST"],
   })
 );
@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_ADDRESS,
+    origin: "https://zooom-peach.vercel.app/",
     methods: ["GET", "POST"],
   },
 });
