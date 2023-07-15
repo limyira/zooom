@@ -110,9 +110,7 @@ app.post("/api/message", (req, res) => {
       .json({ message: "메세지가 제대로 전송되지 못했습니다." });
   }
 });
-app.get("/", (req, res) => {
-  return res.json({ home: "success" });
-});
+
 server.listen(PORT, () => {
   console.log(`server is runnging on ${PORT}`);
 });
