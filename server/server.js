@@ -7,7 +7,7 @@ import bodyParser from "body-parser";
 import twilio from "twilio";
 dotenv.config();
 const app = express();
-const PORT = 8080;
+const PORT = 7000;
 const sid = process.env.SID;
 const token = process.env.AUTH_TOKEN;
 const client = twilio(sid, token);
