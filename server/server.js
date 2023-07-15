@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://zooom-peach.vercel.app",
+    origin: "*",
     methods: ["GET", "POST", "PUT"],
   },
 });
