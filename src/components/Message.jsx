@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import plane_img from "../assets/paper-plane.png";
 import { useState } from "react";
+import axios from "axios";
 const Message = ({ open, setOpen, setIsSending }) => {
   const tl = gsap.timeline();
   const [text, setText] = useState("");
@@ -51,6 +52,7 @@ const Message = ({ open, setOpen, setIsSending }) => {
       });
       tl.to(".plane", { x: 0, y: 0, rotateY: 0, duration: 0.3, opacity: 0 });
       await tl.set(".wrapper", { opacity: 1, delay: 1 });
+      const res = await axios.post("https://yira.site/api/message", { text });
       setText("");
       setIsSending(false);
     } else return;
