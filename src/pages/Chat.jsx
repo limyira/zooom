@@ -96,7 +96,7 @@ const Chat = () => {
   };
 
   useEffect(() => {
-    socketRef.current = io("localhost:8080");
+    socketRef.current = io("https://yira.stie");
 
     pcRef.current = new RTCPeerConnection({
       iceServers: [
