@@ -295,6 +295,7 @@ const VideoWrapper = styled.div`
   width: 530px;
   display: flex;
   align-items: center;
+  overflow: hidden;
   justify-content: center;
   @media screen and (max-width: ${maxWidth}) {
     height: 269px;
