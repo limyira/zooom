@@ -242,7 +242,6 @@ const Video = styled.video`
   object-fit: fill;
   @media screen and (max-width: ${maxWidth}) {
     height: 270px;
-    margin-bottom: 40px;
   }
 `;
 
@@ -292,6 +291,7 @@ const VideoWrapper = styled.div`
   aspect-ratio: 16 / 9;
   @media screen and (max-width: ${maxWidth}) {
     height: 269px;
+    margin-bottom: 40px;
   }
 `;
 
