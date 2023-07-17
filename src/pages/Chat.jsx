@@ -235,10 +235,10 @@ const Main = styled.main`
 const Video = styled.video`
   height: 400px;
   z-index: 88;
+  width: 100%;
   border-radius: 15px;
   @media screen and (max-width: ${maxWidth}) {
     height: 270px;
-    width: 100%;
   }
 `;
 
