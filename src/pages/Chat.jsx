@@ -289,7 +289,7 @@ const VideoWrapper = styled.div`
   aspect-ratio: 16 9;
   @media screen and (max-width: ${maxWidth}) {
     height: 269px;
-    width: 358px;
+    width: auto !important;
   }
 `;
 
