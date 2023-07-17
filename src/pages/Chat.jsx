@@ -171,11 +171,11 @@ const Chat = () => {
     <Container>
       <Main className="main">
         <VideoWrapper>
-          <Video muted loop playsinline autoPlay ref={localVideoRef} />
+          <Video loop muted playsinline autoPlay ref={localVideoRef} />
           <DisConnectImg src={user_img} />
         </VideoWrapper>
         <VideoWrapper>
-          <Video muted loop playsinline autoPlay ref={remoteVideoRef} />
+          <Video loop muted playsinline autoPlay ref={remoteVideoRef} />
           <DisConnectImg src={user_img} />
         </VideoWrapper>
       </Main>
