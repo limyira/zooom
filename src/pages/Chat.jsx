@@ -235,14 +235,13 @@ const Main = styled.main`
 `;
 
 const Video = styled.video`
-  height: 400px;
+  height: 270px;
   z-index: 88;
   width: auto !important;
   border-radius: 15px;
   @media screen and (max-width: ${maxWidth}) {
     width: 100%;
-    height: 0;
-    padding-top: 50%;
+    height: 270px;
   }
 `;
 
@@ -283,7 +282,7 @@ const VideoWrapper = styled.div`
   position: relative;
   z-index: 3;
   background-color: #3d4043;
-  height: 400px;
+  height: fit-content;
   width: 530px;
   display: flex;
   align-items: center;
