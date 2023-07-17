@@ -139,6 +139,27 @@ const Chat = () => {
       pcRef.current.close();
     };
   }, []);
+  useEffect(() => {
+    const handleLoadedMetadata = () => {
+      console.log(localVideoRef.current);
+    };
+
+    if (localVideoRef.current) {
+      localVideoRef.current.addEventListener(
+        "loadedmetadata",
+        handleLoadedMetadata
+      );
+    }
+
+    return () => {
+      if (localVideoRef.current) {
+        localVideoRef.current.removeEventListener(
+          "loadedmetadata",
+          handleLoadedMetadata
+        );
+      }
+    };
+  }, []);
   const handleCamera = async () => {
     streamRef.current
       .getVideoTracks()
