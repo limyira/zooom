@@ -171,11 +171,11 @@ const Chat = () => {
     <Container>
       <Main className="main">
         <VideoWrapper>
-          <Video autoPlay ref={localVideoRef} />
+          <Video muted playsinline autoPlay ref={localVideoRef} />
           <DisConnectImg src={user_img} />
         </VideoWrapper>
         <VideoWrapper>
-          <Video autoPlay ref={remoteVideoRef} />
+          <Video muted playsinline autoPlay ref={remoteVideoRef} />
           <DisConnectImg src={user_img} />
         </VideoWrapper>
       </Main>
@@ -239,11 +239,6 @@ const Video = styled.video`
   @media screen and (max-width: ${maxWidth}) {
     height: 270px;
     width: 100%;
-  }
-  @supports (-webkit-touch-callout: none) {
-    body {
-      overflow: hidden;
-    }
   }
 `;
 
