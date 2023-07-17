@@ -292,6 +292,7 @@ const VideoWrapper = styled.div`
   @media screen and (max-width: ${maxWidth}) {
     height: 269px;
     margin-bottom: 40px;
+    width: fit-content;
   }
 `;
 
