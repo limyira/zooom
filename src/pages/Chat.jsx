@@ -139,21 +139,7 @@ const Chat = () => {
       pcRef.current.close();
     };
   }, []);
-  useEffect(() => {
-    const localLoaded = () => {
-      localVideoRef.current.style.height = 270;
-    };
-    const remoteLoaded = () => {
-      remoteVideoRef.current.style.height = 270;
-    };
 
-    if (localVideoRef.current) {
-      localVideoRef.current.addEventListener("loadedmetadata", localLoaded);
-    }
-    if (remoteVideoRef.current) {
-      remoteVideoRef.current.addEventListener("loadedmetadata", remoteLoaded);
-    }
-  }, []);
   const handleCamera = async () => {
     streamRef.current
       .getVideoTracks()
@@ -304,7 +290,8 @@ const VideoWrapper = styled.div`
   aspect-ratio: 16 9;
   @media screen and (max-width: ${maxWidth}) {
     height: 269px;
-    width: auto !important;
+    margin-bottom: 40px;
+    width: fit-content;
   }
 `;
 
