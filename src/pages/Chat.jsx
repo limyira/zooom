@@ -175,7 +175,7 @@ const Chat = () => {
             autoPlay
             webkit-playsinline
             muted
-            playsinline
+            playsInline
             ref={localVideoRef}
           />
           <DisConnectImg src={user_img} />
@@ -185,7 +185,7 @@ const Chat = () => {
             autoPlay
             webkit-playsinline
             muted
-            playsinline
+            playsInline
             ref={remoteVideoRef}
           />
           <DisConnectImg src={user_img} />
