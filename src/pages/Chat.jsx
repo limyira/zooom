@@ -239,9 +239,9 @@ const Video = styled.video`
   z-index: 88;
   border-radius: 15px;
   aspect-ratio: 16 / 9;
-  object-fit: fill;
+  object-fit: cover;
   @media screen and (max-width: ${maxWidth}) {
-    height: 240px;
+    height: 200px;
   }
 `;
 
@@ -290,7 +290,7 @@ const VideoWrapper = styled.div`
   justify-content: center;
   aspect-ratio: 16 / 9;
   @media screen and (max-width: ${maxWidth}) {
-    height: 269px;
+    height: fit-content;
     margin-bottom: 40px;
     width: fit-content;
   }
