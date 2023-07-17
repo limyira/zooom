@@ -238,6 +238,7 @@ const Video = styled.video`
   border-radius: 15px;
   @media screen and (max-width: ${maxWidth}) {
     height: 270px;
+    width: 100%;
   }
 `;
 
