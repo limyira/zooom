@@ -237,8 +237,8 @@ const Main = styled.main`
 const Video = styled.video`
   height: 400px;
   z-index: 88;
-  width: auto !important;
   border-radius: 15px;
+  aspect-ratio: 16 / 9;
   @media screen and (max-width: ${maxWidth}) {
     height: 270px;
     margin-bottom: 40px;
@@ -288,7 +288,7 @@ const VideoWrapper = styled.div`
   align-items: center;
   overflow: hidden;
   justify-content: center;
-  aspect-ratio: 16 9;
+  aspect-ratio: 16 / 9;
   @media screen and (max-width: ${maxWidth}) {
     height: 269px;
   }
