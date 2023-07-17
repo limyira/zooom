@@ -167,6 +167,7 @@ const Chat = () => {
     if (isSending) return;
     setOpen((prev) => !prev);
   };
+
   return (
     <Container>
       <Main className="main">
@@ -235,7 +236,7 @@ const Main = styled.main`
 const Video = styled.video`
   height: 400px;
   z-index: 88;
-  width: 100%;
+  width: auto !important;
   border-radius: 15px;
   @media screen and (max-width: ${maxWidth}) {
     height: 270px;
@@ -289,7 +290,6 @@ const VideoWrapper = styled.div`
   @media screen and (max-width: ${maxWidth}) {
     height: 269px;
     width: 358px;
-    padding-top: 56.25%;
   }
 `;
 
