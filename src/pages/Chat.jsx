@@ -235,12 +235,11 @@ const Main = styled.main`
 `;
 
 const Video = styled.video`
-  height: 270px;
+  height: 400px;
   z-index: 88;
   width: auto !important;
   border-radius: 15px;
   @media screen and (max-width: ${maxWidth}) {
-    width: 100%;
     height: 270px;
   }
 `;
@@ -282,7 +281,7 @@ const VideoWrapper = styled.div`
   position: relative;
   z-index: 3;
   background-color: #3d4043;
-  height: fit-content;
+  height: 400px;
   width: 530px;
   display: flex;
   align-items: center;
@@ -290,9 +289,8 @@ const VideoWrapper = styled.div`
   justify-content: center;
   aspect-ratio: 16 9;
   @media screen and (max-width: ${maxWidth}) {
-    width: 380px;
-    margin-bottom: 40px;
-    width: fit-content;
+    height: 269px;
+    width: auto !important;
   }
 `;
 
