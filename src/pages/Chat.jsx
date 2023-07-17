@@ -240,6 +240,11 @@ const Video = styled.video`
     height: 270px;
     width: 100%;
   }
+  @supports (-webkit-touch-callout: none) {
+    body {
+      overflow: hidden;
+    }
+  }
 `;
 
 const Nav = styled.div`
