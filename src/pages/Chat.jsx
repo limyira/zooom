@@ -239,6 +239,7 @@ const Video = styled.video`
   z-index: 88;
   border-radius: 15px;
   aspect-ratio: 16 / 9;
+  object-fit: fill;
   @media screen and (max-width: ${maxWidth}) {
     height: 270px;
     margin-bottom: 40px;
