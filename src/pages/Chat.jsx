@@ -285,10 +285,11 @@ const VideoWrapper = styled.div`
   align-items: center;
   overflow: hidden;
   justify-content: center;
+  aspect-ratio: 16 9;
   @media screen and (max-width: ${maxWidth}) {
     height: 269px;
     width: 358px;
-    margin-bottom: 30px;
+    padding-top: 56.25%;
   }
 `;
 
