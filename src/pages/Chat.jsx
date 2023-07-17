@@ -140,25 +140,19 @@ const Chat = () => {
     };
   }, []);
   useEffect(() => {
-    const handleLoadedMetadata = () => {
-      console.log(localVideoRef.current);
+    const localLoaded = () => {
+      localVideoRef.current.style.height = 270;
+    };
+    const remoteLoaded = () => {
+      remoteVideoRef.current.style.height = 270;
     };
 
     if (localVideoRef.current) {
-      localVideoRef.current.addEventListener(
-        "loadedmetadata",
-        handleLoadedMetadata
-      );
+      localVideoRef.current.addEventListener("loadedmetadata", localLoaded);
     }
-
-    return () => {
-      if (localVideoRef.current) {
-        localVideoRef.current.removeEventListener(
-          "loadedmetadata",
-          handleLoadedMetadata
-        );
-      }
-    };
+    if (remoteVideoRef.current) {
+      remoteVideoRef.current.addEventListener("loadedmetadata", remoteLoaded);
+    }
   }, []);
   const handleCamera = async () => {
     streamRef.current
